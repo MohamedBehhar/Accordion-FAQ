@@ -1,0 +1,239 @@
+/*
+=============== 
+Fonts
+===============
+*/
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+
+/*
+=============== 
+Variables
+===============
+*/
+:root {
+  /* text color  */
+  --t-Vd-blue: hsl(238, 29%, 16%);
+  --Soft-red: hsl(14, 88%, 65%);
+  --t-Vd-grayish-blue: hsl(237, 12%, 33%);
+  --t-D-grayish-blue: hsl(240, 6%, 50%);
+
+  /* Background gradient */
+  --bg-Soft-violet: hsl(273, 75%, 66%);
+  --bg-Soft-blue: hsl(240, 73%, 65%);
+
+  /* devider */
+  --divider: hsl(240, 5%, 91%);
+}
+/*
+=============== 
+Global Styles
+===============
+*/
+
+*,
+::after,
+::before {
+  margin: 0%;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-weight: 100;
+}
+h1 {
+  color: var(--t-Vd-grayish-blue);
+  margin-bottom: 1rem;
+}
+h2 {
+  color: var(--t-D-grayish-blue);
+}
+.attribution {
+  position: fixed;
+  bottom: 2px;
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(227, 31%, 74%);
+  text-decoration: none;
+}
+
+body {
+  min-height: 100vh;
+  background-image: linear-gradient(var(--bg-Soft-violet), var(--bg-Soft-blue));
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Kumbh Sans", sans-serif;
+}
+
+.card {
+  background-color: whitesmoke;
+  width: 70%;
+  min-height: 450px;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* styling the images */
+.card .image {
+  overflow-y: hidden;
+  flex: 1;
+  min-height: 450px;
+  position: relative;
+}
+
+.des-bg {
+  max-width: 110%;
+  position: absolute;
+  top: 20%;
+  transform: translate(-30%, -25%);
+}
+
+/* positoining the box  */
+.box {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 0%;
+  z-index: 3;
+  max-width: 23%;
+}
+
+/* desktop img  */
+.des-il {
+  position: absolute;
+  top: 50%;
+  left: 28%;
+  transform: translate(-45%, -60%);
+  max-width: 90%;
+}
+
+/* mobile image  */
+.mob-il {
+  visibility: hidden;
+}
+
+/* styling the accordions */
+.accordions {
+  max-width: 50%;
+  padding: 2rem;
+  min-height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+@media screen and (max-width: 1100px) {
+  .card {
+    width: 80%;
+  }
+
+  .accordions {
+    min-height: 90%;
+    padding: 1rem;
+    max-width: 55%;
+  }
+}
+
+.accordion-item {
+  border-bottom: 1px solid var(--divider);
+  padding-bottom: 0.5rem;
+}
+
+.acc-header {
+  color: var(--t-Vd-blue);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 400;
+  transition: all 500ms ease-in-out;
+  cursor: pointer;
+}
+
+.show-text .acc-header {
+  color: var(--Soft-red);
+  font-weight: 700;
+}
+
+.acc-text {
+  color: var(--t-Vd-grayish-blue);
+  padding: 0.5rem 0;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 400ms ease-in-out;
+}
+
+/* adding classes of the click event */
+.show-text .acc-text {
+  height: 85px;
+  opacity: 1;
+}
+
+.fas {
+  transform: none;
+  font-size: 1rem;
+  padding: 0 0.5rem;
+  transition: all 400ms ease-in-out;
+}
+.show-text .fas {
+  transform: rotate(180deg);
+}
+
+/* adjusting the media querie */
+@media screen and (max-width: 850px) {
+  h1 {
+    text-align: center;
+  }
+  .card {
+    flex-direction: column;
+    min-height: 90vh;
+    height: fit-content;
+  }
+  .card .image {
+    flex: 1;
+    min-height: unset;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .mob-il {
+    max-width: 95%;
+    visibility: visible;
+  }
+  .des-bg {
+    display: none;
+  }
+
+  .accordions {
+    flex: 5;
+    min-width: 80%;
+  }
+
+  .acc-text {
+    font-size: 14px;
+  }
+
+  .box,
+  .des-il {
+    display: none;
+  }
+}
+@media screen and (max-width: 650px) {
+  .accordions {
+    min-width: 90%;
+  }
+}
